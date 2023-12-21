@@ -5,6 +5,7 @@ Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inpu
 
 let counterFamily = 0;
 document.querySelector("#add-family").onclick = function (event) {
+    
     let elementsFamily = createElementsFamily();
     insertElementsFamily(elementsFamily);
     counterFamily++;

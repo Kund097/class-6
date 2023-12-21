@@ -68,7 +68,10 @@ document.querySelector("#calculate-salary").onclick = function (event) {
         let lowestAnnualSalary = calculateLowestAnnualSalary(monthlySalary);
         let averageAnnualSalary = calculateAverageAnnualSalary(monthlySalary);
         let averageMonthlySalary =  calculateAverageMonthlySalary(monthlySalary);
-        printResults(highterAnnualSalary,lowestAnnualSalary,averageAnnualSalary,averageMonthlySalary);
+        printHighterAnnualSalary(highterAnnualSalary);
+        printLowestAnnualSalary(lowestAnnualSalary);
+        printAverageAnnualSalary(averageAnnualSalary);
+        printAverageMonthlySalary(averageMonthlySalary);
     }
    
 
@@ -132,11 +135,23 @@ function calculateAverageMonthlySalary(monthlySalary){
     return accumulator / monthlySalary.length;
 }
 
-function printResults(highterAnnualSalary,lowestAnnualSalary,averageAnnualSalary,averageMonthlySalary) {
+function printHighterAnnualSalary(highterAnnualSalary) {
 
-    document.querySelector("#highter-annual-salary").textContent = `El salario anual mas alto: ${highterAnnualSalary}, `;
-    document.querySelector("#lowest-annual-salary").textContent = `El salario anual mas bajo: ${lowestAnnualSalary}, `;
+    document.querySelector("#highter-annual-salary").textContent = `El salaro anual más alto: ${highterAnnualSalary}, `;
+
+}
+
+function printLowestAnnualSalary(lowestAnnualSalary) {
+
+    document.querySelector("#lowest-annual-salary").textContent = `El salario anual más bajo: ${lowestAnnualSalary}, `;
+}
+
+function printAverageAnnualSalary(averageAnnualSalary) {
+
     document.querySelector("#average-annual-salary").textContent = `El salario anual promedio: ${averageAnnualSalary.toFixed(2)}, `;
-    document.querySelector("#average-monthly-salary").textContent = `El salario mensual promedio: ${averageMonthlySalary.toFixed(2)} `;
+}
 
+function printAverageMonthlySalary(averageMonthlySalary) {
+
+    document.querySelector("#average-monthly-salary").textContent = `El salaro mensual promedio: ${averageMonthlySalary.toFixed(2)}`;
 }

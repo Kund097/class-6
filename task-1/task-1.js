@@ -6,7 +6,7 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad
 Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
 */
 
-let $enterFamilyGroupButton = document.querySelector("#enter-family-group");
+const $enterFamilyGroupButton = document.querySelector("#enter-family-group");
 
 $enterFamilyGroupButton.onclick = function (event) {
     verifiedElements();
@@ -16,7 +16,7 @@ $enterFamilyGroupButton.onclick = function (event) {
     event.preventDefault();
 };
 
-let $clearNodesButton = document.querySelector("#clear-nodes");
+const $clearNodesButton = document.querySelector("#clear-nodes");
 $clearNodesButton.onclick = verifiedElements;
 
 function getFamilyQuantity() {
@@ -70,7 +70,7 @@ function clearElements(elements) {
     }
 }
 
-let $calculateFamilyGroupButton = document.querySelector(
+const $calculateFamilyGroupButton = document.querySelector(
     "#calculate-family-group"
 );
 
@@ -84,7 +84,9 @@ $calculateFamilyGroupButton.onclick = function (event) {
         let youngestAge = calculateYoungestPerson(ages);
         let averageAge = calculateAverageAges(ages);
 
-        insertResults(oldestAge, youngestAge, averageAge);
+        insertOldestPerson(oldestAge);
+        insertYoungestAge(youngestAge);
+        insertAverageAge(averageAge);
     }
 
     event.preventDefault();
@@ -131,16 +133,19 @@ function calculateAverageAges(ages) {
 
 //resultados
 
-function insertResults(oldestAge, youngestAge, averageAge) {
-    document.querySelector(
-        "#oldest-person"
-    ).textContent = `Mayor edad: ${oldestAge}`;
-    document.querySelector(
-        "#youngest-person"
-    ).textContent = `Menor edad: ${youngestAge}`;
-    document.querySelector(
-        "#family-average-age"
-    ).textContent = `Promedio familiar edad: ${averageAge}`;
+function insertOldestPerson(oldestAge) {
+
+    document.querySelector("#oldest-person").textContent = `Mayor edad: ${oldestAge}`;
+}
+
+function insertYoungestAge(youngestAge) {
+
+    document.querySelector("#youngest-person").textContent = `Menor edad: ${youngestAge}`;
+}
+
+function insertAverageAge(averageAge) {
+
+    document.querySelector("#youngest-person").textContent = `Promedio familiar edad: ${averageAge}`;
 }
 
 function verifiedInputs() {
